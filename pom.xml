@@ -6,12 +6,242 @@
 
     <groupId>io.github.gaoshq7</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+    <name>parent</name>
+    <description>Spring boot 2 父级项目</description>
+    <inceptionYear>2025</inceptionYear>
+
+    <url>https://github.com/gaoshq7/parent</url>
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/gaoshq7/parent.git</connection>
+        <developerConnection>scm:git:git@github.com:gaoshq7/parent.git</developerConnection>
+        <url>https://github.com/gaoshq7/parent</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>gaoshq7</id>
+            <name>七枷社</name>
+            <roles>
+                <role>Project Manager</role>
+                <role>Developer</role>
+            </roles>
+            <email>yashiro_2022@163.com</email>
+            <url>https://github.com/gaoshq7</url>
+        </developer>
+    </developers>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- 跳过测试 -->
+        <skipTests>true</skipTests>
+        <maven.test.skip>true</maven.test.skip>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
+        <maven.deploy.skip>false</maven.deploy.skip>
+        <!-- 依赖版本 -->
+        <junit.version>4.12</junit.version>
+        <mysql.version>8.0.23</mysql.version>
+        <fastJson.version>1.2.75</fastJson.version>
+        <hutool-all.version>[5.8.0, 5.8.99]</hutool-all.version>
+        <lombok.version>1.18.34</lombok.version>
+        <commom-io.version>2.6</commom-io.version>
+        <mybatis-plus-velocity.version>2.1</mybatis-plus-velocity.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <guava.version>27.0-jre</guava.version>
+        <netty-all.version>4.1.114.Final</netty-all.version>
+        <protobuf-java.version>4.28.0</protobuf-java.version>
+        <jsch.version>0.1.55</jsch.version>
+        <commons-lang3.version>3.11</commons-lang3.version>
+        <protobuf-java-util.version>3.5.1</protobuf-java-util.version>
+        <!-- 软件过期 -->
+        <license.version>2.1</license.version>
+        <!-- starter -->
+        <mybatis-plus.version>3.2.0</mybatis-plus.version>
+        <druid.version>1.2.5</druid.version>
+        <forest.version>1.4.12</forest.version>
+        <swagger.version>3.0.3</swagger.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring boot env -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.7.18</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- http -->
+            <dependency>
+                <groupId>com.dtflys.forest</groupId>
+                <artifactId>spring-boot-starter-forest</artifactId>
+                <version>${forest.version}</version>
+            </dependency>
+
+            <!-- swagger -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <!-- druid -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!-- mybatis plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- xml解析 -->
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${dom4j.version}</version>
+            </dependency>
+
+            <!-- 网络传输框架 -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty-all.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>${protobuf-java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java-util</artifactId>
+                <version>${protobuf-java-util.version}</version>
+            </dependency>
+
+            <!-- 数据库驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!-- 代码生成器 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${mybatis-plus-velocity.version}</version>
+            </dependency>
+
+            <!-- ssh -->
+            <dependency>
+                <groupId>com.jcraft</groupId>
+                <artifactId>jsch</artifactId>
+                <version>${jsch.version}</version>
+            </dependency>
+
+            <!-- 非开源软件过期组件 -->
+            <dependency>
+                <groupId>org.smartboot.license</groupId>
+                <artifactId>license-client</artifactId>
+                <version>${license.version}</version>
+            </dependency>
+
+            <!-- commons-lang工具包 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <!-- commons-io工具包 -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commom-io.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool-all.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastJson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <name>Central Portal Snapshots</name>
+            <id>central-portal-snapshots</id>
+            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 </project>
