@@ -67,6 +67,8 @@
         <jsch.version>0.1.55</jsch.version>
         <commons-lang3.version>3.11</commons-lang3.version>
         <protobuf-java-util.version>3.5.1</protobuf-java-util.version>
+        <slf4j.version>1.7.21</slf4j.version>
+        <logback.version>1.2.3</logback.version>
         <!-- 软件过期 -->
         <license.version>2.1</license.version>
         <!-- starter -->
@@ -74,6 +76,8 @@
         <druid.version>1.2.5</druid.version>
         <forest.version>1.4.12</forest.version>
         <swagger.version>3.0.3</swagger.version>
+        <!-- 其它版本 -->
+        <jdframe.version>0.1.9</jdframe.version>
     </properties>
 
     <dependencyManagement>
@@ -194,6 +198,13 @@
                 <artifactId>commons-io</artifactId>
                 <version>${commom-io.version}</version>
             </dependency>
+
+            <!-- 其它工具包 -->
+            <dependency>
+                <groupId>io.github.burukeyou</groupId>
+                <artifactId>jdframe</artifactId>
+                <version>${jdframe.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -220,6 +231,18 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
         </dependency>
 
         <dependency>
