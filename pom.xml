@@ -6,7 +6,7 @@
 
     <groupId>io.github.gaoshq7</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1</version>
 
     <packaging>pom</packaging>
     <name>parent</name>
@@ -77,7 +77,7 @@
         <forest.version>1.4.12</forest.version>
         <swagger.version>3.0.3</swagger.version>
         <!-- 其它版本 -->
-        <common-boot.version>1.0.0</common-boot.version>
+        <common-boot.version>1.0.1</common-boot.version>
         <jdframe.version>0.1.9</jdframe.version>
     </properties>
 
